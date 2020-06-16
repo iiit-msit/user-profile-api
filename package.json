@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/iiit-msit/user-profile-api#readme",
   "dependencies": {
+    "aws-sdk": "^2.697.0",
     "csv-parser": "^2.3.3",
     "csvtojson": "^2.0.10"
   }
