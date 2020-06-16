@@ -1,0 +1,23 @@
+{
+  "name": "user-profile-api",
+  "version": "1.0.0",
+  "description": "user profile API will be build in the repo",
+  "main": "csvtojson.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iiit-msit/user-profile-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iiit-msit/user-profile-api/issues"
+  },
+  "homepage": "https://github.com/iiit-msit/user-profile-api#readme",
+  "dependencies": {
+    "csvtojson": "^2.0.10"
+  }
+}
