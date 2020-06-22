@@ -1,0 +1,85 @@
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+  /**
+   * Sample JavaScript code for directory.users.insert
+   * See instructions for running APIs Explorer code samples locally:
+   * https://developers.google.com/explorer-help/guides/code_samples#javascript
+   */
+
+  function authenticate() {
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: "https://www.googleapis.com/auth/admin.directory.user"})
+        .then(function() { console.log("Sign-in successful"); },
+              function(err) { 
+                  console.log("hello");
+                  console.error("Error signing in", err); });
+  }
+  function loadClient() {
+    gapi.client.setApiKey("AIzaSyDwl1baJvASq0gAd_yjkLL9T0EUD1QQhNI");
+    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/admin/directory_v1/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  // Make sure the client is loaded and sign-in is complete before calling this method.
+  function execute() {
+    return gapi.client.directory.users.insert({
+      // "resource": {
+        "name": {
+          "familyName": "test1",
+          "givenName": "msitmail"
+        },
+        "password": "Msit@123456789",
+        "primaryEmail": "msittestmail2@msitprogram.net",
+        "orgUnitPath": "/Students/Userprofile",
+      // }
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: "599747608337-sd4bpc9q5jclnsgfbk716upmmbb67uvl.apps.googleusercontent.com"});
+  });
+  // function execute() {
+  //   return gapi.client.directory.users.get({
+  //     "userKey": "nivasreddy08@msitprogram.net",
+  //     "customFieldMask": "string",
+  //     "projection": "basic",
+  //     "viewType": "admin_view"
+  //   })
+  //       .then(function(response) {
+  //               // Handle the results here (response.result has the parsed body).
+  //               console.log("Response", response);
+  //             },
+  //             function(err) { console.error("Execute error", err); });
+  // }
+  // gapi.load("client:auth2", function() {
+  //   gapi.auth2.init({client_id: "599747608337-sd4bpc9q5jclnsgfbk716upmmbb67uvl.apps.googleusercontent.com"});
+  // });
+  // function execute() {
+  //   return gapi.client.directory.users.list({
+  //     "domain": "msitprogram.net",
+  //     "maxResults": 50,
+  //     "orderBy": "email",
+  //     "projection": "basic",
+  //     "sortOrder": "ASCENDING",
+  //     "viewType": "admin_view"
+  //   })
+  //       .then(function(response) {
+  //               // Handle the results here (response.result has the parsed body).
+  //               console.log("Response", response);
+  //             },
+  //             function(err) { console.error("Execute error", err); });
+  // }
+  // gapi.load("client:auth2", function() {
+  //   gapi.auth2.init({client_id: "599747608337-sd4bpc9q5jclnsgfbk716upmmbb67uvl.apps.googleusercontent.com"});
+  // });
+</script>
+<button onclick="authenticate().then(loadClient)">authorize and load</button>
+<button onclick="execute()">execute</button>
+
+
+
+
